@@ -1,11 +1,14 @@
 """module for preprocessing the query"""
 
-from nltk.corpus import stopwords
+import nltk
 import unicodedata
 
+nltk.download("stopwords")
+
 def load_stops():
+
     """load stop words for removal"""
-    stops = stopwords.open("french").read().splitlines()
+    stops = nltk.corpus.stopwords.open("french").read().splitlines()
     more_stops = ["travail", "travailler", "travaille"]
     stops.extend(more_stops)
     stops = set(stops)
